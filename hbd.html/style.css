@@ -1,0 +1,100 @@
+/* --- Gaya Umum (Body dan Kartu) --- */
+body {
+    /* Latar belakang merah muda lembut dengan gradien */
+    background: linear-gradient(135deg, #fce3e8, #f8c8d2); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Agar memenuhi seluruh layar */
+    margin: 0;
+}
+
+.card {
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- Gaya Teks Ucapan --- */
+h1 {
+    /* Menerapkan Google Font yang sudah diimpor */
+    font-family: 'Dancing Script', cursive; 
+    color: #c2185b; /* Warna merah muda gelap */
+    font-size: 3.5em; 
+    font-weight: 700;
+    /* Bayangan teks putih samar */
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); 
+    margin-top: 30px;
+}
+
+/* --- Membuat Bentuk Kue (CSS Murni) --- */
+.cake {
+    position: relative;
+    width: 150px;
+    height: 70px;
+    background-color: #a0522d; /* Cokelat tua untuk dasar kue */
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+}
+
+/* Bagian Frosting/Lapisan Atas Kue */
+.cake::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    right: -5px;
+    height: 20px;
+    background-color: #ffffff; /* Putih untuk krim */
+    border-radius: 50%;
+    border: 3px solid #f9a6a6; /* Garis tepi merah muda */
+}
+
+/* --- Membuat Lilin --- */
+.candle {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 30px;
+    background-color: #ffffff; /* Badan lilin putih */
+    border-radius: 5px 5px 0 0;
+    z-index: 10;
+}
+
+/* --- Membuat Api Lilin dan Menerapkan Animasi --- */
+.flame {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 15px solid #ffcc00; /* Kuning untuk api */
+    border-radius: 50%;
+    z-index: 11;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    
+    /* Terapkan animasi kedipan */
+    animation: flicker 1s infinite alternate; 
+}
+
+/* --- Definisi Animasi (@keyframes) --- */
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    }
+    50% {
+        transform: translateX(-50%) scale(0.95); /* Sedikit mengecil */
+        box-shadow: 0 0 15px rgba(255, 153, 0, 1); /* Lebih terang */
+    }
+    75% {
+        transform: translateX(-50%) scale(1.05); /* Sedikit membesar */
+        box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Lebih redup */
+    }
+}
